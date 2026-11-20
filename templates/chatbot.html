@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}AI Agriculture Chatbot - AgriPulse AI{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div>
+    <h2>AI Agriculture Chatbot (Kisan Sahayak)</h2>
+    <p>Ask any farming, crop management, fertilizer dosage, pest control, or government subsidy question in plain language.</p>
+  </div>
+  <div>
+    <span style="font-size: 0.85rem; color: #166534; background: #dcfce7; padding: 0.4rem 0.8rem; border-radius: 6px; font-weight: 600;">
+      ● AI Agent Active • Multi-Intent Agro Knowledge Base
+    </span>
+  </div>
+</div>
+
+<div style="max-width: 900px; margin: 0 auto;">
+  <div class="chat-container">
+    <!-- Chat Messages Scroll Area -->
+    <div class="chat-messages" id="chatMessages">
+      <!-- Welcome Message -->
+      <div class="chat-bubble bubble-bot">
+        <strong>Namaste Farmer! 🌱</strong>
+        I am your <strong>AgriPulse AI Assistant</strong>. You can ask me questions about:
+        • Recommended crops and sowing seasons
+        • Organic & chemical remedies for leaf spots and pests
+        • Fertilizer doses (Urea, DAP, NPK ratios)
+        • Smart water-saving & drip irrigation
+        • Government schemes like PM-KISAN & PMFBY crop insurance
+        
+        How can I help your farm today?
+      </div>
+    </div>
+
+    <!-- Suggested Quick Prompts Bar -->
+    <div class="quick-prompts">
+      <span class="prompt-pill">🌾 What crop should I grow in Kharif?</span>
+      <span class="prompt-pill">🥔 How to treat Early Blight on Potato?</span>
+      <span class="prompt-pill">🧪 How much Urea should I apply?</span>
+      <span class="prompt-pill">💧 What are the benefits of Drip Irrigation?</span>
+      <span class="prompt-pill">🏛️ Tell me about PM-KISAN scheme</span>
+      <span class="prompt-pill">🌿 Recipe for organic Jeevamrutha</span>
+    </div>
+
+    <!-- Chat Input Form -->
+    <form class="chat-input-area" id="chatForm">
+      <input type="text" id="chatInput" class="form-control" placeholder="Type your farming query here (e.g., 'how to improve acidic soil?')..." autocomplete="off" required>
+      <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1.5rem;">
+        <span>Send</span> ➔
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

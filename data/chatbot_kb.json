@@ -1,0 +1,95 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hello", "hi", "hey", "namaste", "pranam", "kisan", "good morning", "good evening", "help"
+      ],
+      "responses": [
+        "Namaste! I am AgriPulse AI, your Smart Agriculture Assistant. How can I assist you with your crops, soil, fertilizers, or pest management today?",
+        "Hello Farmer! Welcome to AgriPulse. You can ask me about crop selection, fertilizer dosages, leaf diseases, weather advice, or government schemes."
+      ]
+    },
+    {
+      "tag": "crop_recommendation",
+      "patterns": [
+        "what crop should i grow", "recommend crop", "crop for rainy season", "kharif crops", "rabi crops", "which crop is suitable", "fasal konsi lagaye"
+      ],
+      "responses": [
+        "To get an accurate crop recommendation, please head to our 'Crop Recommendation' tool! Enter your soil Nitrogen (N), Phosphorus (P), Potassium (K), soil pH, and rainfall. Our trained Random Forest model will evaluate the best crop for your soil and climate."
+      ]
+    },
+    {
+      "tag": "soil_health",
+      "patterns": [
+        "soil ph", "acidic soil", "alkaline soil", "how to improve soil", "mitti ki janch", "soil health card"
+      ],
+      "responses": [
+        "For optimal crop growth, soil pH should ideally be between 6.0 and 7.5. If your soil is acidic (pH < 6.0), apply agricultural lime (calcium carbonate). If your soil is alkaline (pH > 8.0), apply gypsum (calcium sulfate) and organic matter. We recommend getting a Soil Health Card every 2 years."
+      ]
+    },
+    {
+      "tag": "urea_fertilizer",
+      "patterns": [
+        "urea", "nitrogen deficiency", "yellow leaves", "how much urea", "dap", "khad", "fertilizer dosage"
+      ],
+      "responses": [
+        "Urea contains 46% Nitrogen and promotes lush vegetative growth. Avoid applying all urea at once; split into 2-3 top-dressings (at basal, active tillering, and panicle/flowering stages). If leaves are yellowing from the bottom up, it indicates Nitrogen deficiency. Use our Fertilizer Recommendation tool for exact kg/acre calculations!"
+      ]
+    },
+    {
+      "tag": "drip_irrigation",
+      "patterns": [
+        "irrigation", "pani kitna de", "drip irrigation", "watering schedule", "water saving", "sinchai"
+      ],
+      "responses": [
+        "Drip irrigation saves up to 50-70% water and delivers nutrients directly to the root zone (fertigation). Irrigate early in the morning (6 AM - 9 AM) or late afternoon to minimize evaporation loss. Always avoid flood irrigation during hot mid-day sun."
+      ]
+    },
+    {
+      "tag": "pest_control",
+      "patterns": [
+        "pest attack", "insects", "keeda laga hai", "aphids", "whitefly", "caterpillar", "fall armyworm", "neem oil"
+      ],
+      "responses": [
+        "For organic pest management: Spray 5% Neem Seed Kernel Extract (NSKE) or Neem Oil (10,000 ppm @ 2ml/L with liquid soap). Install yellow sticky traps (15-20/acre) for whiteflies/aphids, and pheromone traps for borers. For severe infestation, use specific targeted insecticides after consulting an extension officer."
+      ]
+    },
+    {
+      "tag": "disease_detection",
+      "patterns": [
+        "leaf spots", "blight", "yellow leaves disease", "patte sukh rahe hain", "disease", "fungus"
+      ],
+      "responses": [
+        "You can diagnose leaf conditions instantly! Go to our 'Plant Disease Detection' page and upload a clear photo of the affected leaf. Our Deep Learning CNN will identify the disease, its severity, and provide organic & chemical remedies immediately."
+      ]
+    },
+    {
+      "tag": "pm_kisan",
+      "patterns": [
+        "pm kisan", "scheme", "subsidy", "sarkari yojana", "kisan samman nidhi", "insurance", "pmfby"
+      ],
+      "responses": [
+        "Key Central Schemes for Farmers:\n1. PM-KISAN: ₹6,000/year income support in 3 equal installments.\n2. PMFBY (Pradhan Mantri Fasal Bima Yojana): Low premium crop insurance (2% for Kharif, 1.5% for Rabi).\n3. Kisan Credit Card (KCC): Concessional institutional credit at 4% effective interest.\nVisit your nearest CSC or pmkisan.gov.in for registration."
+      ]
+    },
+    {
+      "tag": "organic_farming",
+      "patterns": [
+        "organic farming", "jeevamrutha", "panchagavya", "vermicompost", "jaivik kheti"
+      ],
+      "responses": [
+        "Jeevamrutha Preparation: Mix 10 kg native cow dung, 10 L cow urine, 2 kg jaggery, 2 kg pulse flour, and a handful of virgin farm soil in 200 L water. Ferment for 48 hours in shade with twice-daily stirring. Apply 200 L/acre with irrigation or as a 10% foliar spray for enhanced soil microbial life."
+      ]
+    },
+    {
+      "tag": "weather_advice",
+      "patterns": [
+        "weather", "rain forecast", "mosam", "frost alert", "heatwave"
+      ],
+      "responses": [
+        "Check our live 'Weather & Smart Irrigation' module for temperature, humidity, and rainfall forecasts! Tip: Never spray pesticides or liquid fertilizers immediately before anticipated rain, as runoff wastes expensive chemicals."
+      ]
+    }
+  ]
+}

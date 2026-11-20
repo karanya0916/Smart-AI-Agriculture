@@ -1,0 +1,233 @@
+{
+  "languages": {
+    "en": {"name": "English (India)", "code": "en-IN", "flag": "🇮🇳"},
+    "hi": {"name": "हिन्दी (Hindi)", "code": "hi-IN", "flag": "🇮🇳"},
+    "mr": {"name": "मराठी (Marathi)", "code": "mr-IN", "flag": "🚩"},
+    "te": {"name": "తెలుగు (Telugu)", "code": "te-IN", "flag": "🌾"},
+    "ta": {"name": "தமிழ் (Tamil)", "code": "ta-IN", "flag": "🌴"},
+    "bn": {"name": "বাংলা (Bengali)", "code": "bn-IN", "flag": "🌱"},
+    "gu": {"name": "ગુજરાતી (Gujarati)", "code": "gu-IN", "flag": "🚜"},
+    "kn": {"name": "ಕನ್ನಡ (Kannada)", "code": "kn-IN", "flag": "🌻"},
+    "pa": {"name": "ਪੰਜਾਬੀ (Punjabi)", "code": "pa-IN", "flag": "🌾"}
+  },
+  "knowledge_base": {
+    "en": [
+      {
+        "intent": "greeting",
+        "keywords": ["hello", "hi", "namaste", "assistant", "help", "kisan"],
+        "response": "Namaste! I am AgriPulse Voice Assistant. Speak or ask about crop selection, leaf diseases, fertilizers, or irrigation in your preferred language."
+      },
+      {
+        "intent": "crop_recommendation",
+        "keywords": ["crop", "grow", "sow", "which crop", "suitable crop", "kharif", "rabi"],
+        "response": "For best crop selection, provide your soil Nitrogen, Phosphorus, Potassium, and pH in the Crop Suitability tool. Our model evaluates 22 major crops with 99.7% accuracy."
+      },
+      {
+        "intent": "fertilizer_urea",
+        "keywords": ["fertilizer", "urea", "dap", "nitrogen", "yellow leaf", "dosage"],
+        "response": "Urea provides 46% Nitrogen for lush vegetative growth. Apply in split doses: 50% as basal dose and 25% each at tillering and flowering. Use our Fertilizer tool for exact kg per acre calculations."
+      },
+      {
+        "intent": "disease_blight",
+        "keywords": ["disease", "spots", "early blight", "late blight", "fungus", "pests", "leaf spot"],
+        "response": "For early blight with dark concentric rings, spray 5% Neem extract or Mancozeb 75% WP at 2.5 grams per liter. Ensure drip irrigation to avoid water splash on leaves."
+      },
+      {
+        "intent": "smart_irrigation",
+        "keywords": ["irrigation", "water", "watering", "drip", "moisture", "rain forecast"],
+        "response": "Water early in the morning between 6 to 9 AM to reduce evaporation. Check our Smart Irrigation tab to calculate exact liters per acre based on 48-hour rainfall forecasts."
+      },
+      {
+        "intent": "pm_kisan_scheme",
+        "keywords": ["pm kisan", "scheme", "subsidy", "government", "insurance", "pmfby"],
+        "response": "Under PM-KISAN, eligible farmers receive ₹6,000 annually in three installments. For PMFBY crop insurance, pay 2% premium for Kharif and 1.5% for Rabi crops."
+      },
+      {
+        "intent": "organic_farming",
+        "keywords": ["organic", "jeevamrutha", "panchagavya", "vermicompost", "cow dung"],
+        "response": "For Jeevamrutha: mix 10 kg native cow dung, 10 liters cow urine, 2 kg jaggery, 2 kg gram flour, and virgin soil in 200 liters water. Ferment in shade for 48 hours."
+      }
+    ],
+    "hi": [
+      {
+        "intent": "greeting",
+        "keywords": ["नमस्ते", "हेलो", "प्रणाम", "मदद", "किसान", "सहायक", "राम राम"],
+        "response": "नमस्ते किसान भाई! मैं एग्रीपल्स वॉइस असिस्टेंट हूँ। आप मुझसे फसल चयन, पत्तों के रोग, खाद की मात्रा या सिंचाई के बारे में अपनी भाषा में पूछ सकते हैं।"
+      },
+      {
+        "intent": "crop_recommendation",
+        "keywords": ["फसल", "बोएं", "कौन सी फसल", "उपयुक्त फसल", "खरीफ", "रबी", "पैदावार"],
+        "response": "सर्वोत्तम फसल चुनने के लिए अपनी मिट्टी के नाइट्रोजन, फास्फोरस, पोटाश और पीएच मान की जांच करें। हमारे मॉडल से 22 फसलों में से आपकी मिट्टी के लिए सबसे सही फसल जानी जा सकती है।"
+      },
+      {
+        "intent": "fertilizer_urea",
+        "keywords": ["खाद", "यूरिया", "डीएपी", "पोटाश", "पीले पत्ते", "मात्रा"],
+        "response": "यूरिया में 46% नाइट्रोजन होता है जो पौधों की वृद्धि बढ़ाता है। इसे 2 से 3 बार में दें - बुवाई के समय आधा, और बाकी कल्ले फूटते व फूल आते समय। सही मात्रा के लिए हमारा खाद कैलकुलेटर देखें।"
+      },
+      {
+        "intent": "disease_blight",
+        "keywords": ["रोग", "बीमारी", "झुलसा", "दाग", "फफूंद", "कीड़ा", "पत्ते सूखना"],
+        "response": "पत्तों पर भूरे छल्लेदार दाग अर्ली ब्लाइट के लक्षण हैं। इसके लिए 5% नीम तेल या मैंकोजेब 75% WP (2.5 ग्राम प्रति लीटर पानी) का छिड़काव करें। पत्तों पर पानी का जमाव न होने दें।"
+      },
+      {
+        "intent": "smart_irrigation",
+        "keywords": ["सिंचाई", "पानी", "ड्रिप", "नमी", "बारिश", "पानी कब दें"],
+        "response": "सुबह 6 से 9 बजे के बीच सिंचाई करना सबसे अच्छा होता है। आगामी बारिश के पूर्वानुमान और मिट्टी की नमी देखकर ही पानी दें, जिससे 40% तक पानी की बचत होती है।"
+      },
+      {
+        "intent": "pm_kisan_scheme",
+        "keywords": ["पीएम किसान", "सरकारी योजना", "सब्सिडी", "बीमा", "फसल बीमा"],
+        "response": "पीएम-किसान योजना में किसानों को प्रति वर्ष ₹6,000 तीन किस्तों में मिलते हैं। प्रधानमंत्री फसल बीमा योजना में खरीफ के लिए 2% और रबी के लिए 1.5% प्रीमियम देय है।"
+      },
+      {
+        "intent": "organic_farming",
+        "keywords": ["जैविक", "जीवामृत", "पंचगव्य", "देसी खाद", "केंचुआ खाद"],
+        "response": "जीवामृत बनाने की विधि: 10 किलो देसी गाय का गोबर, 10 लीटर गोमूत्र, 2 किलो गुड़, 2 किलो बेसन और मुट्ठी भर उपजाऊ मिट्टी 200 लीटर पानी में मिलाकर 48 घंटे छांव में रखें।"
+      }
+    ],
+    "mr": [
+      {
+        "intent": "greeting",
+        "keywords": ["नमस्कार", "हॅलो", "मदत", "शेतकरी", "बोला"],
+        "response": "नमस्कार शेतकरी बंधूंनो! मी एग्रीपल्स व्हॉइस असिस्टंट आहे. पीक निवड, रोगांचे उपाय, खतांचे प्रमाण किंवा सिंचनाबद्दल मला विचारा."
+      },
+      {
+        "intent": "crop_recommendation",
+        "keywords": ["पीक", "कोणते पीक", "पेरणी", "खरीप", "रब्बी", "शेती"],
+        "response": "योग्य पिकाची निवड करण्यासाठी मातीतील नत्र, स्फुरद, पालाश आणि पीएच पातळी तपासा. आमचे एआय मॉडेल तुमच्या जमिनीनुसार सर्वोत्तम पीक सुचवते."
+      },
+      {
+        "intent": "fertilizer_urea",
+        "keywords": ["खत", "युरिया", "डीएपी", "खतांचे प्रमाण", "पाने पिवळी"],
+        "response": "युरिया वनस्पतींच्या वाढीसाठी 46% नत्र देतो. खताचा सर्व डोस एकदम न देता 2 ते 3 हप्त्यांमध्ये विभागून द्या. अचूक प्रमाणासाठी आमचे खत शिफारस टूल वापरा."
+      },
+      {
+        "intent": "disease_blight",
+        "keywords": ["रोग", "करपा", "पानांवर डाग", "कीड", "बुरशी"],
+        "response": "पानांवरील करपा रोगासाठी 5% निंबोळी अर्क किंवा मँकोझेब (2.5 ग्रॅम प्रति लिटर पाणी) फवारा. जास्त ओलावा टाळण्यासाठी ठिबक सिंचनाचा वापर करा."
+      },
+      {
+        "intent": "smart_irrigation",
+        "keywords": ["पाणी", "सिंचन", "ठिबक", "पावसाचा अंदाज"],
+        "response": "बाष्पीभवन टाळण्यासाठी सकाळी लवकर किंवा संध्याकाळी पाणी द्या. आगामी पावसाचा अंदाज पाहूनच सिंचनाचे नियोजन करा."
+      },
+      {
+        "intent": "pm_kisan_scheme",
+        "keywords": ["पीएम किसान", "योजना", "अनुदान", "पीक विमा"],
+        "response": "पीएम किसान सन्मान निधी अंतर्गत वर्षाला ₹6,000 मिळतात. तसेच प्रधानमंत्री पीक विमा योजनेचा लाभ घेऊन नैसर्गिक नुकसानीपासून संरक्षण मिळवा."
+      }
+    ],
+    "te": [
+      {
+        "intent": "greeting",
+        "keywords": ["నమస్కారం", "హలో", "సహాయం", "రైతు"],
+        "response": "రైతు మిత్రులకు నమస్కారం! నేను అగ్రిపల్స్ వాయిస్ అసిస్టెంట్. పంటల ఎంపిక, చీడపీడల నివారణ, ఎరువుల మోతాదు లేదా నీటి యాజమాన్యం గురించి అడగండి."
+      },
+      {
+        "intent": "crop_recommendation",
+        "keywords": ["పంట", "ఏ పంట", "విత్తనాలు", "ఖరీఫ్", "రబీ"],
+        "response": "మీ నేల నత్రజని, భాస్వరం, పొటాష్ మరియు పి.హెచ్ విలువలను బట్టి ఉత్తమమైన పంటను మా ఏఐ సిఫార్సు చేస్తుంది."
+      },
+      {
+        "intent": "fertilizer_urea",
+        "keywords": ["ఎరువులు", "యూరియా", "డిఎపి", "మోతాదు", "ఆకులు పసుపు"],
+        "response": "యూరియా మొక్కల పెరుగుదలకు తోడ్పడుతుంది. యూరియాను ఒకేసారి వేయకుండా 2-3 దఫాలుగా వేయాలి. ఎకరానికి సరైన మోతాదు కోసం మా ఫెర్టిలైజర్ టూల్ చూడండి."
+      },
+      {
+        "intent": "disease_blight",
+        "keywords": ["తెగులు", "మచ్చలు", "ఆకు మచ్చ", "పురుగులు", "శిలీంధ్రం"],
+        "response": "ఆకు మచ్చ తెగులు నివారణకు వేప నూనె లేదా మాంకోజెబ్ (లీటరు నీటికి 2.5 గ్రాములు) పిచికారీ చేయండి."
+      },
+      {
+        "intent": "smart_irrigation",
+        "keywords": ["నీరు", "నీటి పారుదల", "డ్రిప్", "తేమ"],
+        "response": "ఉదయం 6 నుండి 9 గంటల మధ్య నీరు పెట్టడం వల్ల ఆవిరి నష్టం తగ్గుతుంది. నేల తేమ శాతాన్ని బట్టి నీరు అందించండి."
+      }
+    ],
+    "ta": [
+      {
+        "intent": "greeting",
+        "keywords": ["வணக்கம்", "உதவி", "விவசாயி"],
+        "response": "வணக்கம் விவசாய நண்பரே! நான் அக்ரிபல்ஸ் குரல் உதவியாளர். பயிர் தேர்வு, பூச்சி கட்டுப்பாடு, உர மேலாண்மை அல்லது நீர்ப்பாசனம் பற்றி கேளுங்கள்."
+      },
+      {
+        "intent": "crop_recommendation",
+        "keywords": ["பயிர்", "எந்த பயிர்", "சாகுபடி"],
+        "response": "மண்ணின் நைட்ரஜன், பாஸ்பரஸ், பொட்டாசியம் மற்றும் pH அளவுக்கு ஏற்ப சிறந்த பயிரை எங்களின் AI மாதிரி பரிந்துரைக்கும்."
+      },
+      {
+        "intent": "fertilizer_urea",
+        "keywords": ["உரம்", "யூரியா", "டிஏபி", "அளவு"],
+        "response": "யூரியாவை ஒரே நேரத்தில் இடாமல் 2-3 முறை பிரித்து இட வேண்டும். ஏக்கருக்கு சரியான அளவை அறிய எங்களின் உர பரிந்துரை கருவியைப் பயன்படுத்தவும்."
+      },
+      {
+        "intent": "disease_blight",
+        "keywords": ["நோய்", "இலைப்புள்ளி", "பூச்சி", "கருகல்"],
+        "response": "இலைக்கருகல் நோய்க்கு வேப்பெண்ணெய் அல்லது மேங்கோசெப் 2.5 கிராம் லிட்டருக்கு கலந்து தெளிக்கவும்."
+      }
+    ],
+    "bn": [
+      {
+        "intent": "greeting",
+        "keywords": ["নমস্কার", "হ্যালো", "সাহায্য", "কৃষক"],
+        "response": "নমস্কার কৃষক ভাই! আমি এগ্রিপালস ভয়েস অ্যাসিস্ট্যান্ট। ফসল নির্বাচন, সার প্রয়োগ বা রোগবালাই সম্পর্কে আপনার ভাষায় জিজ্ঞাসা করুন।"
+      },
+      {
+        "intent": "crop_recommendation",
+        "keywords": ["ফসল", "কোন ফসল", "চাষ"],
+        "response": "মাটির নাইট্রোজেন, ফসফরাস, পটাশ এবং পিএইচ মান অনুযায়ী সেরা ফসল বেছে নিতে আমাদের ক্রপ রিকমেন্ডেশন ব্যবহার করুন।"
+      },
+      {
+        "intent": "disease_blight",
+        "keywords": ["রোগ", "দাগ", "ব্লাইট", "কীটপতঙ্গ"],
+        "response": "পাতায় বাদামি দাগ ও ব্লাইট দমনে নিম তেল অথবা ম্যানকোজেব (প্রতি লিটারে ২.৫ গ্রাম) স্প্রে করুন।"
+      }
+    ],
+    "gu": [
+      {
+        "intent": "greeting",
+        "keywords": ["નમસ્તે", "હેલો", "મદદ", "ખેડૂત"],
+        "response": "નમસ્તે ખેડૂત મિત્રો! હું એગ્રીપલ્સ વોઈસ આસિસ્ટન્ટ છું. પાકની પસંદગી, ખાતર કે રોગ નિયંત્રણ વિશે તમારી ભાષામાં પૂછો."
+      },
+      {
+        "intent": "crop_recommendation",
+        "keywords": ["પાક", "કયો પાક", "વાવણી"],
+        "response": "જમીનના નાઈટ્રોજન, ફોસ્ફરસ, પોટાશ અને પી.એચ. મુજબ યોગ્ય પાક પસંદ કરવા અમારું એઆઈ ટૂલ વાપરો."
+      },
+      {
+        "intent": "fertilizer_urea",
+        "keywords": ["ખાતર", "યુરિયા", "ડીએપી"],
+        "response": "યુરિયા ખાતર ૨ થી ૩ હપ્તામાં આપવું જોઈએ જેથી છોડનો સારો વિકાસ થાય."
+      }
+    ],
+    "kn": [
+      {
+        "intent": "greeting",
+        "keywords": ["ನಮಸ್ಕಾರ", "ಸಹಾಯ", "ರೈತ"],
+        "response": "ರೈತ ಬಾಂಧವರಿಗೆ ನಮಸ್ಕಾರ! ನಾನು ಅಗ್ರಿಪಲ್ಸ್ ಧ್ವನಿ ಸಹಾಯಕ. ಬೆಳೆ ಆಯ್ಕೆ, ಗೊಬ್ಬರ ಪ್ರಮಾಣ ಅಥವಾ ರೋಗ ನಿರ್ವಹಣೆ ಕುರಿತು ಕೇಳಿ."
+      },
+      {
+        "intent": "crop_recommendation",
+        "keywords": ["ಬೆಳೆ", "ಯಾವ ಬೆಳೆ", "ಬಿತ್ತನೆ"],
+        "response": "ಮಣ್ಣಿನ ಪೋಷಕಾಂಶಗಳ ಆಧಾರದ ಮೇಲೆ ಸೂಕ್ತವಾದ ಬೆಳೆಯನ್ನು ನಮ್ಮ ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆ ಮಾದರಿ ಶಿಫಾರಸು ಮಾಡುತ್ತದೆ."
+      }
+    ],
+    "pa": [
+      {
+        "intent": "greeting",
+        "keywords": ["ਸਤਿ ਸ਼੍ਰੀ ਅਕਾਲ", "ਹੈਲੋ", "ਮਦਦ", "ਕਿਸਾਨ"],
+        "response": "ਸਤਿ ਸ਼੍ਰੀ ਅਕਾਲ ਕਿਸਾਨ ਵੀਰੋ! ਮੈਂ ਐਗਰੀਪਲਸ ਵੌਇਸ ਅਸਿਸਟੈਂਟ ਹਾਂ। ਫਸਲਾਂ ਦੀ ਚੋਣ, ਖਾਦ ਦੀ ਮਾਤਰਾ ਜਾਂ ਬਿਮਾਰੀਆਂ ਬਾਰੇ ਆਪਣੀ ਬੋਲੀ ਵਿੱਚ ਪੁੱਛੋ।"
+      },
+      {
+        "intent": "crop_recommendation",
+        "keywords": ["ਫਸਲ", "ਕਿਹੜੀ ਫਸਲ", "ਬਿਜਾਈ"],
+        "response": "ਆਪਣੀ ਜ਼ਮੀਨ ਦੇ ਨਾਈਟ੍ਰੋਜਨ, ਫਾਸਫੋਰਸ, ਪੋਟਾਸ਼ ਅਤੇ ਪੀਐੱਚ ਮੁਤਾਬਕ ਸਹੀ ਫਸਲ ਜਾਣਨ ਲਈ ਸਾਡਾ ਮਾਡਲ ਵਰਤੋ।"
+      },
+      {
+        "intent": "fertilizer_urea",
+        "keywords": ["ਖਾਦ", "ਯੂਰੀਆ", "ਡੀਏਪੀ"],
+        "response": "ਯੂਰੀਆ ਖਾਦ 2 ਤੋਂ 3 ਕਿਸ਼ਤਾਂ ਵਿੱਚ ਪਾਓ ਤਾਂ ਜੋ ਪੌਦਿਆਂ ਨੂੰ ਪੂਰਾ ਪੋਸ਼ਣ ਮਿਲੇ।"
+      }
+    ]
+  }
+}

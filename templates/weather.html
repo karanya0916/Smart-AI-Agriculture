@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}Weather & Smart Irrigation - AgriPulse AI{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div>
+    <h2>Agro-Weather & Smart Irrigation Advisor</h2>
+    <p>Hyper-local weather forecasts combined with soil moisture dynamics to prevent over-watering and maximize crop water productivity.</p>
+  </div>
+  <div>
+    <form method="GET" action="{{ url_for('weather_irrigation') }}" style="display: flex; gap: 0.5rem; align-items: center;">
+      <label style="font-size: 0.85rem; font-weight: 600; color: #374151;">Location:</label>
+      <select name="city" class="form-control" style="width: auto; padding: 0.35rem 0.75rem;" onchange="this.form.submit()">
+        <option value="Karnal" {% if city=='Karnal' %}selected{% endif %}>Karnal (Haryana)</option>
+        <option value="Ludhiana" {% if city=='Ludhiana' %}selected{% endif %}>Ludhiana (Punjab)</option>
+        <option value="Pune" {% if city=='Pune' %}selected{% endif %}>Pune (Maharashtra)</option>
+        <option value="Nagpur" {% if city=='Nagpur' %}selected{% endif %}>Nagpur (Vidarbha)</option>
+        <option value="Varanasi" {% if city=='Varanasi' %}selected{% endif %}>Varanasi (UP)</option>
+        <option value="Hyderabad" {% if city=='Hyderabad' %}selected{% endif %}>Hyderabad (Telangana)</option>
+        <option value="Indore" {% if city=='Indore' %}selected{% endif %}>Indore (MP)</option>
+      </select>
+    </form>
+  </div>
+</div>
+
+<!-- Weather Hero Widget -->
+<div class="weather-hero">
+  <div>
+    <span style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #a7f3d0;">
+      Current Agricultural Weather • {{ city }}
+    </span>
+    <div class="weather-temp">{{ weather.current.temp }}°C</div>
+    <p style="font-size: 1.1rem; color: #ecfdf5; font-weight: 500;">
+      {{ weather.current.condition }} • Wind: {{ weather.current.wind }} km/h
+    </p>
+  </div>
+  <div style="text-align: right;">
+    <div style="font-size: 3.5rem;">{{ weather.current.icon }}</div>
+    <div style="background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 8px; margin-top: 0.5rem;">
+      <span>Relative Humidity: <strong>{{ weather.current.humidity }}%</strong></span> | 
+      <span>Rain Probability: <strong>{{ weather.current.rain_prob }}%</strong></span>
+    </div>
+  </div>
+</div>
+
+<!-- 5-Day Forecast Grid -->
+<div class="card" style="margin-top: 1.5rem;">
+  <div class="card-header">
+    <h3>📅 5-Day Agricultural Weather Outlook</h3>
+    <small style="color: #6b7280;">High / Low Temps & Precipitation Estimates</small>
+  </div>
+  <div class="forecast-days">
+    {% for day in weather.forecast %}
+      <div class="forecast-card">
+        <strong style="display: block; color: #1b4332; font-size: 0.95rem; margin-bottom: 0.3rem;">{{ day.day }}</strong>
+        <div style="font-size: 2rem; margin: 0.2rem 0;">{{ day.icon }}</div>
+        <div style="font-weight: 700; color: #1f2937;">{{ day.high }}° / {{ day.low }}°</div>
+        <div style="font-size: 0.8rem; color: #2563eb; font-weight: 600; margin-top: 0.2rem;">💧 {{ day.rain }} mm</div>
+        <div style="font-size: 0.72rem; color: #6b7280; margin-top: 0.3rem;">{{ day.condition }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Smart Irrigation Calculator Section -->
+<div class="grid-2" style="margin-top: 1.5rem;">
+  <div class="card">
+    <div class="card-header">
+      <h3>💧 Smart Irrigation Decision Engine</h3>
+    </div>
+    <form action="{{ url_for('weather_irrigation') }}" method="POST">
+      <input type="hidden" name="city" value="{{ city }}">
+
+      <!-- Crop Selection -->
+      <div class="form-group">
+        <label>Crop Grown</label>
+        <select name="crop" class="form-control" required>
+          <option value="Wheat" {% if irrig and irrig.crop=='Wheat' %}selected{% endif %}>Wheat (Medium Water Needs)</option>
+          <option value="Paddy" {% if irrig and irrig.crop=='Paddy' %}selected{% endif %}>Paddy / Rice (High Water Requirement)</option>
+          <option value="Maize" {% if irrig and irrig.crop=='Maize' %}selected{% endif %}>Maize (Critical at Tasseling)</option>
+          <option value="Cotton" {% if irrig and irrig.crop=='Cotton' %}selected{% endif %}>Cotton (Deep Rooted)</option>
+          <option value="Sugarcane" {% if irrig and irrig.crop=='Sugarcane' %}selected{% endif %}>Sugarcane (High Consumption)</option>
+          <option value="Vegetables" {% if irrig and irrig.crop=='Vegetables' %}selected{% endif %}>Vegetables (Frequent Light Watering)</option>
+        </select>
+      </div>
+
+      <!-- Growth Stage -->
+      <div class="form-group">
+        <label>Current Phenological Growth Stage</label>
+        <select name="stage" class="form-control" required>
+          <option value="Vegetative" {% if irrig and irrig.stage=='Vegetative' %}selected{% endif %}>Vegetative / Active Tillering</option>
+          <option value="Flowering" {% if irrig and irrig.stage=='Flowering' %}selected{% endif %}>Flowering / Tasseling (Critical Sensitivity)</option>
+          <option value="Grain Filling" {% if irrig and irrig.stage=='Grain Filling' %}selected{% endif %}>Grain Filling / Pod Development</option>
+          <option value="Ripening" {% if irrig and irrig.stage=='Ripening' %}selected{% endif %}>Maturity & Ripening (Withhold Water)</option>
+        </select>
+      </div>
+
+      <!-- Current Soil Moisture -->
+      <div class="form-group">
+        <label>
+          <span>Soil Moisture Sensor / Feel Level</span>
+          <span class="badge">10 - 90 %</span>
+        </label>
+        <div class="range-wrapper">
+          <input type="range" class="range-slider" min="10" max="90" value="{{ irrig.moisture if irrig else 38 }}" data-target="moistInput">
+          <input type="number" id="moistInput" name="moisture" class="form-control range-input" min="10" max="90" value="{{ irrig.moisture if irrig else 38 }}" required>
+        </div>
+      </div>
+
+      <!-- Field Area -->
+      <div class="form-group">
+        <label>
+          <span>Field Area to Irrigate</span>
+          <span class="badge">Acres</span>
+        </label>
+        <input type="number" step="0.5" min="0.5" max="50" name="area" class="form-control" value="{{ irrig.area if irrig else 2.0 }}" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1rem;">
+        ⚡ Calculate Irrigation Volume & Timing
+      </button>
+    </form>
+  </div>
+
+  <!-- Irrigation Recommendation Card -->
+  <div>
+    {% if irrig %}
+      <div class="card result-box" style="margin-top: 0; background: white; border-color: {% if irrig.urgency=='Critical' %}#fca5a5{% elif irrig.urgency=='Adequate' %}#86efac{% else %}#fde047{% endif %};">
+        <div class="result-header">
+          <span style="font-size: 2.2rem;">
+            {% if irrig.urgency=='Critical' %}🚨{% elif irrig.urgency=='Adequate' %}✅{% else %}⚠️{% endif %}
+          </span>
+          <div>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #166534; text-transform: uppercase;">
+              Water Scheduling Recommendation
+            </span>
+            <div class="result-badge" style="color: {% if irrig.urgency=='Critical' %}#b91c1c{% elif irrig.urgency=='Adequate' %}#15803d{% else %}#b45309{% endif %};">
+              {{ irrig.status }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Cards -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+          <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 1rem; text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 800; color: #1e40af;">{{ "{:,}".format(irrig.water_liters | round(0) | int) }} L</div>
+            <div style="font-size: 0.8rem; color: #4b5563;">Total Water Required ({{ irrig.area }} acres)</div>
+          </div>
+          <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 1rem; text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 800; color: #1e40af;">{{ irrig.timing }}</div>
+            <div style="font-size: 0.8rem; color: #4b5563;">Optimal Watering Window</div>
+          </div>
+        </div>
+
+        <div style="background: #f9fbfa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem;">
+          <p><strong>Soil Moisture Status:</strong> Currently at {{ irrig.moisture }}%. Field capacity target is 70%.</p>
+          <p><strong>Evapotranspiration Factor:</strong> High daytime temperatures ({{ weather.current.temp }}°C) demand morning application to avoid 35% evaporative loss.</p>
+          <p><strong>Weather Offset:</strong> Forecasted rain ({{ weather.forecast[1].rain }} mm in 48h) was factored in to save pump electricity.</p>
+        </div>
+
+        <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; color: #14532d;">
+          <strong>💧 Water Conservation Tip:</strong> Drip or micro-sprinkler systems reduce water usage by 60% compared to traditional flood furrowing, conserving groundwater table reserves.
+        </div>
+      </div>
+    {% else %}
+      <div class="card" style="text-align: center; padding: 3.5rem 1.5rem;">
+        <span style="font-size: 3.5rem; display: block; margin-bottom: 1rem;">💧</span>
+        <h3 style="color: #1b4332; margin-bottom: 0.5rem;">Smart Irrigation Decision Tool</h3>
+        <p style="color: #6b7280; font-size: 0.92rem; max-width: 360px; margin: 0 auto 1.5rem;">
+          Select your crop, current growth stage, and soil moisture level to calculate exact water volume needed without wasting aquifer reserves.
+        </p>
+        <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; color: #1e40af; text-align: left;">
+          <strong>Science Note:</strong> Over-watering suffocates root hairs and leaches mobile nitrate fertilizers down into deep soil beyond root reach.
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

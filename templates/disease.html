@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Plant Disease Detection - AgriPulse AI{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div>
+    <h2>Plant Disease Vision Screening</h2>
+    <p>Upload a clear crop leaf photo or select a reference sample. Our Deep Learning CNN will identify pathogens and recommend agronomist-verified remedies.</p>
+  </div>
+  <div>
+    <span style="font-size: 0.85rem; color: #1e40af; background: #dbeafe; padding: 0.4rem 0.8rem; border-radius: 6px; font-weight: 600;">
+      Deep Learning Engine: TensorFlow CNN (14 Target Classes)
+    </span>
+  </div>
+</div>
+
+<div class="grid-2">
+  <!-- Left Column: Upload & Sample Selector -->
+  <div class="card">
+    <div class="card-header">
+      <h3>📸 Leaf Image Upload</h3>
+    </div>
+
+    <!-- 1-Click Sample Test Leaves for Immediate Testing -->
+    <div style="margin-bottom: 1.25rem;">
+      <small style="color: #6b7280; font-weight: 600; display: block; margin-bottom: 0.5rem;">
+        ⚡ 1-Click Instant Test Samples (Click any to test):
+      </small>
+      <div class="sample-chips">
+        <span class="sample-chip" data-img="{{ url_for('static', filename='img/sample_leaves/potato_early_blight.jpg') }}" data-name="Potato Early Blight">🥔 Potato: Early Blight</span>
+        <span class="sample-chip" data-img="{{ url_for('static', filename='img/sample_leaves/potato_late_blight.jpg') }}" data-name="Potato Late Blight">🥔 Potato: Late Blight</span>
+        <span class="sample-chip" data-img="{{ url_for('static', filename='img/sample_leaves/tomato_bacterial_spot.jpg') }}" data-name="Tomato Bacterial Spot">🍅 Tomato: Bacterial Spot</span>
+        <span class="sample-chip" data-img="{{ url_for('static', filename='img/sample_leaves/tomato_yellow_curl.jpg') }}" data-name="Tomato Yellow Curl">🍅 Tomato: Yellow Leaf Curl</span>
+        <span class="sample-chip" data-img="{{ url_for('static', filename='img/sample_leaves/corn_common_rust.jpg') }}" data-name="Corn Common Rust">🌽 Corn: Common Rust</span>
+        <span class="sample-chip" data-img="{{ url_for('static', filename='img/sample_leaves/apple_scab.jpg') }}" data-name="Apple Scab">🍎 Apple: Apple Scab</span>
+        <span class="sample-chip" data-img="{{ url_for('static', filename='img/sample_leaves/potato_healthy.jpg') }}" data-name="Potato Healthy">🥔 Potato: Healthy</span>
+        <span class="sample-chip" data-img="{{ url_for('static', filename='img/sample_leaves/tomato_healthy.jpg') }}" data-name="Tomato Healthy">🍅 Tomato: Healthy</span>
+      </div>
+    </div>
+
+    <form action="{{ url_for('disease_detect') }}" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="sample_path" id="samplePathInput" value="">
+
+      <!-- Drag & Drop Area -->
+      <div class="upload-dropzone" id="uploadDropzone">
+        <div class="upload-icon">🍃</div>
+        <h4 style="color: #1b4332; margin-bottom: 0.25rem;">Drop Leaf Image Here or Click to Browse</h4>
+        <p style="font-size: 0.85rem; color: #6b7280;">Supports JPEG, PNG leaf close-ups</p>
+        <input type="file" id="leafImageInput" name="leaf_image" accept="image/*" style="display: none;">
+      </div>
+
+      <!-- Preview Image Display -->
+      <div class="preview-container">
+        <img id="imagePreview" class="image-preview" src="{{ uploaded_image if uploaded_image else '#' }}" alt="Leaf Preview" style="{% if uploaded_image %}display: block;{% endif %}">
+        <p id="previewFilename" style="font-size: 0.85rem; color: #4b5563; font-weight: 500;">
+          {% if uploaded_image %}Image ready for analysis{% endif %}
+        </p>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1.25rem;">
+        🔬 Run AI Disease Diagnosis
+      </button>
+    </form>
+  </div>
+
+  <!-- Right Column: Diagnostic Results -->
+  <div>
+    {% if result %}
+      <div class="card result-box" style="margin-top: 0; background: #ffffff; border-color: #86efac;">
+        <div class="result-header">
+          <span style="font-size: 2.5rem;">
+            {% if 'healthy' in result.disease_key.lower() %}🌿{% else %}⚠️{% endif %}
+          </span>
+          <div style="flex: 1;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: #166534; text-transform: uppercase;">
+                {{ result.info.crop }} Pathology Report
+              </span>
+              <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 12px; font-weight: 700; background: {% if 'healthy' in result.disease_key.lower() %}#dcfce7; color:#15803d;{% elif 'Severe' in result.info.severity %}#fee2e2; color:#b91c1c;{% else %}#fef3c7; color:#b45309;{% endif %}">
+                Severity: {{ result.info.severity }}
+              </span>
+            </div>
+            <h3 style="color: #1b4332; font-size: 1.35rem; margin-top: 0.2rem;">{{ result.info.disease }}</h3>
+          </div>
+        </div>
+
+        <!-- Confidence Score -->
+        <div style="margin: 0.85rem 0 1.25rem;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600;">
+            <span>Diagnosis Confidence</span>
+            <span style="color: #166534;">{{ (result.confidence * 100) | round(1) }}%</span>
+          </div>
+          <div class="confidence-bar">
+            <div class="confidence-fill" style="width: {{ (result.confidence * 100) | round(1) }}%;"></div>
+          </div>
+        </div>
+
+        <!-- Pathogen & Symptoms -->
+        <div style="background: #f9fbfa; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid #e5e7eb; font-size: 0.88rem;">
+          <p style="margin-bottom: 0.4rem;"><strong>Causal Agent:</strong> {{ result.info.pathogen }}</p>
+          <p style="margin-bottom: 0.4rem;"><strong>Visual Symptoms:</strong> {{ result.info.symptoms }}</p>
+          <p><strong>Environmental Triggers:</strong> {{ result.info.causes }}</p>
+        </div>
+
+        <!-- Organic Remedies -->
+        <div style="margin-bottom: 1rem;">
+          <h4 style="font-size: 0.95rem; color: #166534; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
+            <span>🌿</span> Organic & Biological Control
+          </h4>
+          <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: #374151; line-height: 1.5;">
+            {% for item in result.info.organic_control %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Chemical Remediation -->
+        <div style="margin-bottom: 1rem;">
+          <h4 style="font-size: 0.95rem; color: #b91c1c; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
+            <span>🧪</span> Recommended Chemical Treatment (If Outbreak Spreads)
+          </h4>
+          <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: #374151; line-height: 1.5;">
+            {% for item in result.info.chemical_control %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Prevention -->
+        <div style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; color: #1e3a8a;">
+          <strong>Agronomic Prevention:</strong> {{ result.info.prevention[0] }}
+        </div>
+      </div>
+    {% else %}
+      <div class="card" style="text-align: center; padding: 3.5rem 1.5rem;">
+        <span style="font-size: 3.5rem; display: block; margin-bottom: 1rem;">🔬</span>
+        <h3 style="color: #1b4332; margin-bottom: 0.5rem;">Plant Pathology Lab Ready</h3>
+        <p style="color: #6b7280; font-size: 0.92rem; max-width: 360px; margin: 0 auto 1.5rem;">
+          Upload a high-resolution leaf photograph or choose from our pre-validated reference samples on the left to run instantaneous neural vision diagnostics.
+        </p>
+        <div style="background: #fdf2f8; border: 1px solid #fbcfe8; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; color: #9d174d; text-align: left;">
+          <strong>Tip for High Accuracy:</strong> Ensure the leaf is well lit, in focus, and centered with minimal background clutter.
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

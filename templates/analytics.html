@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics & Model Cards - AgriPulse AI{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div>
+    <h2>AgriPulse Intelligence & Food Security Analytics</h2>
+    <p>Scientific model evaluation cards, confusion matrices, and regional commodity market intelligence.</p>
+  </div>
+  <div>
+    <span style="font-size: 0.85rem; color: #166534; background: #dcfce7; padding: 0.4rem 0.8rem; border-radius: 6px; font-weight: 600;">
+      Held-Out Test Splits Verified
+    </span>
+  </div>
+</div>
+
+<!-- Model Performance Cards -->
+<div class="grid-3" style="margin-bottom: 2rem;">
+  <div class="card" style="border-top: 4px solid #2d7a4c;">
+    <h4 style="color: #1b4332; margin-bottom: 0.5rem;">🌾 Crop Recommendation Model</h4>
+    <div style="font-size: 2.2rem; font-weight: 800; color: #2d7a4c; margin-bottom: 0.5rem;">99.77%</div>
+    <p style="font-size: 0.85rem; color: #4b5563; line-height: 1.5;">
+      <strong>Architecture:</strong> Random Forest Classifier (100 Estimators)<br>
+      <strong>Classes:</strong> 22 Agricultural Crop Varieties<br>
+      <strong>Validation:</strong> Stratified 80/20 Train-Test Split<br>
+      <strong>Key Features:</strong> Rainfall, Humidity, N-P-K, pH
+    </p>
+  </div>
+
+  <div class="card" style="border-top: 4px solid #3b82f6;">
+    <h4 style="color: #1e3a8a; margin-bottom: 0.5rem;">🍃 Leaf Disease Vision CNN</h4>
+    <div style="font-size: 2.2rem; font-weight: 800; color: #2563eb; margin-bottom: 0.5rem;">80.00%</div>
+    <p style="font-size: 0.85rem; color: #4b5563; line-height: 1.5;">
+      <strong>Architecture:</strong> TensorFlow Sequential Deep CNN<br>
+      <strong>Target Classes:</strong> 14 Foliar Pathology Signatures<br>
+      <strong>Input Dimension:</strong> 128x128x3 RGB Tensor<br>
+      <strong>Optimizer:</strong> Adam (Learning Rate: 0.001)
+    </p>
+  </div>
+
+  <div class="card" style="border-top: 4px solid #f59e0b;">
+    <h4 style="color: #92400e; margin-bottom: 0.5rem;">🧪 Fertilizer Nutrition Engine</h4>
+    <div style="font-size: 2.2rem; font-weight: 800; color: #d97706; margin-bottom: 0.5rem;">99.00%</div>
+    <p style="font-size: 0.85rem; color: #4b5563; line-height: 1.5;">
+      <strong>Algorithm:</strong> Decision Forest Classifier<br>
+      <strong>Soil Profiles:</strong> Loamy, Black, Red, Clayey, Sandy<br>
+      <strong>Outputs:</strong> Urea, DAP, 10-26-26, 14-35-14, 17-17-17<br>
+      <strong>Application:</strong> 3-Stage Stage-Wise Split
+    </p>
+  </div>
+</div>
+
+<!-- Visual Evaluation Artifacts -->
+<div class="grid-2" style="margin-bottom: 2rem;">
+  <div class="card">
+    <div class="card-header">
+      <h3>📊 Crop Model Confusion Matrix</h3>
+    </div>
+    <img src="{{ url_for('static', filename='img/crop_confusion_matrix.png') }}" alt="Confusion Matrix" style="width: 100%; border-radius: 6px;">
+    <p style="font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem; text-align: center;">
+      Near-zero off-diagonal confusion across 22 classes on held-out test data.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>📈 CNN Loss & Accuracy Progression</h3>
+    </div>
+    <img src="{{ url_for('static', filename='img/disease_training_metrics.png') }}" alt="CNN Training Curve" style="width: 100%; border-radius: 6px;">
+    <p style="font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem; text-align: center;">
+      Convergence achieved in 12 epochs with batch normalization and dropout regularization.
+    </p>
+  </div>
+</div>
+
+<!-- Food Security & Commodity Price Intelligence Table -->
+<div class="card">
+  <div class="card-header">
+    <h3>📈 Agricultural Commodity Price & Food Security Radar</h3>
+    <small style="color: #6b7280;">Benchmark Mandi Modal Prices (₹/Quintal) & Buffer Supply Status</small>
+  </div>
+  <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+    <thead>
+      <tr style="border-bottom: 2px solid #e5e7eb; text-align: left; color: #4b5563;">
+        <th style="padding: 0.75rem;">Commodity</th>
+        <th style="padding: 0.75rem;">Category</th>
+        <th style="padding: 0.75rem;">MSP (₹/Qtl)</th>
+        <th style="padding: 0.75rem;">Current Mandi Modal Price</th>
+        <th style="padding: 0.75rem;">30-Day Trend</th>
+        <th style="padding: 0.75rem;">Supply & Storage Risk</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #f3f4f6;">
+        <td style="padding: 0.75rem; font-weight: 700; color: #1b4332;">🌾 Wheat (Grade A)</td>
+        <td style="padding: 0.75rem; color: #6b7280;">Cereal / Foodgrain</td>
+        <td style="padding: 0.75rem;">₹2,275</td>
+        <td style="padding: 0.75rem; font-weight: 600;">₹2,420</td>
+        <td style="padding: 0.75rem; color: #166534; font-weight: 700;">▲ +3.2% (Steady)</td>
+        <td style="padding: 0.75rem;"><span style="background: #dcfce7; color: #15803d; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Optimal Buffer</span></td>
+      </tr>
+      <tr style="border-bottom: 1px solid #f3f4f6;">
+        <td style="padding: 0.75rem; font-weight: 700; color: #1b4332;">🍚 Paddy (Common)</td>
+        <td style="padding: 0.75rem; color: #6b7280;">Cereal / Foodgrain</td>
+        <td style="padding: 0.75rem;">₹2,183</td>
+        <td style="padding: 0.75rem; font-weight: 600;">₹2,250</td>
+        <td style="padding: 0.75rem; color: #166534; font-weight: 700;">▲ +1.4% (Stable)</td>
+        <td style="padding: 0.75rem;"><span style="background: #dcfce7; color: #15803d; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Adequate Stock</span></td>
+      </tr>
+      <tr style="border-bottom: 1px solid #f3f4f6;">
+        <td style="padding: 0.75rem; font-weight: 700; color: #1b4332;">🌽 Maize</td>
+        <td style="padding: 0.75rem; color: #6b7280;">Coarse Grain / Feed</td>
+        <td style="padding: 0.75rem;">₹2,090</td>
+        <td style="padding: 0.75rem; font-weight: 600;">₹2,310</td>
+        <td style="padding: 0.75rem; color: #166534; font-weight: 700;">▲ +5.8% (High Feed Demand)</td>
+        <td style="padding: 0.75rem;"><span style="background: #fef3c7; color: #b45309; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Watch Storage Loss</span></td>
+      </tr>
+      <tr style="border-bottom: 1px solid #f3f4f6;">
+        <td style="padding: 0.75rem; font-weight: 700; color: #1b4332;">🌱 Mustard (Sarson)</td>
+        <td style="padding: 0.75rem; color: #6b7280;">Oilseed</td>
+        <td style="padding: 0.75rem;">₹5,650</td>
+        <td style="padding: 0.75rem; font-weight: 600;">₹5,420</td>
+        <td style="padding: 0.75rem; color: #b91c1c; font-weight: 700;">▼ -2.1% (Heavy Arrivals)</td>
+        <td style="padding: 0.75rem;"><span style="background: #fee2e2; color: #b91c1c; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Price Support Needed</span></td>
+      </tr>
+      <tr>
+        <td style="padding: 0.75rem; font-weight: 700; color: #1b4332;">☁️ Cotton (Medium Staple)</td>
+        <td style="padding: 0.75rem; color: #6b7280;">Commercial Cash Crop</td>
+        <td style="padding: 0.75rem;">₹6,620</td>
+        <td style="padding: 0.75rem; font-weight: 600;">₹7,150</td>
+        <td style="padding: 0.75rem; color: #166534; font-weight: 700;">▲ +4.1% (Export Demand)</td>
+        <td style="padding: 0.75rem;"><span style="background: #dcfce7; color: #15803d; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Normal Warehousing</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

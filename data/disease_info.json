@@ -1,0 +1,282 @@
+{
+  "Potato___Early_blight": {
+    "crop": "Potato",
+    "disease": "Early Blight",
+    "pathogen": "Fungus (Alternaria solani)",
+    "severity": "Moderate to High",
+    "symptoms": "Dark brown to black necrotic spots with characteristic concentric rings creating a 'target board' effect on older leaves, yellow halo around lesions.",
+    "causes": "High humidity (>85%), warm temperatures (24-29°C), alternating wet and dry periods, stressed plants with low nitrogen.",
+    "organic_control": [
+      "Foliar spray of organic Copper oxychloride (3g/L) or Bordeaux mixture (1%).",
+      "Biological control using Trichoderma viride or Bacillus subtilis bio-fungicide.",
+      "Spray 5% Neem seed kernel extract (NSKE) at early onset."
+    ],
+    "chemical_control": [
+      "Mancozeb 75% WP @ 2.5 g/liter of water.",
+      "Chlorothalonil 75% WP @ 2 g/liter of water.",
+      "Azoxystrobin 23% SC @ 1 ml/liter of water for systemic suppression."
+    ],
+    "prevention": [
+      "Practice 3-year crop rotation with non-solanaceous crops.",
+      "Maintain adequate plant spacing to facilitate air circulation.",
+      "Use drip irrigation to prevent water splashing on leaves.",
+      "Destroy and burn crop residues after harvest."
+    ]
+  },
+  "Potato___Late_blight": {
+    "crop": "Potato",
+    "disease": "Late Blight",
+    "pathogen": "Oomycete (Phytophthora infestans)",
+    "severity": "Severe / Critical (Rapid Spread)",
+    "symptoms": "Water-soaked irregular dark green/brown lesions starting from leaf tips and margins; white fuzzy fungal growth on the underside during humid weather.",
+    "causes": "Cool, wet conditions (15-20°C with >90% RH), continuous cloud cover, dew duration > 8 hours.",
+    "organic_control": [
+      "Preventive spray of Copper hydroxide or Bordeaux mixture (1%) before rain.",
+      "Apply bio-agent Pseudomonas fluorescens @ 5g/L."
+    ],
+    "chemical_control": [
+      "Metalaxyl 8% + Mancozeb 64% WP (Ridomil MZ) @ 2.5 g/L.",
+      "Cymoxanil 8% + Mancozeb 64% WP @ 2 g/L.",
+      "Dimethomorph 50% WP @ 1 g/L."
+    ],
+    "prevention": [
+      "Use certified disease-free seed tubers (e.g. Kufri Jyoti / Kufri Girdhari).",
+      "De-haulm (cut foliage) 10-12 days before tuber harvest.",
+      "Avoid sprinkler irrigation in the late evening."
+    ]
+  },
+  "Potato___healthy": {
+    "crop": "Potato",
+    "disease": "Healthy Plant Leaf",
+    "pathogen": "None (Vigorous Tissue)",
+    "severity": "Optimal",
+    "symptoms": "Leaves exhibit uniform deep green coloration, firm turgid foliage, devoid of chlorosis, necrosis, or pest bites.",
+    "causes": "Balanced soil nutrition, optimal irrigation, well-aerated sandy-loam soil.",
+    "organic_control": [
+      "Continue standard organic fertility practices (Vermicompost 5 tons/ha).",
+      "Periodic foliar spray of seaweed extract (2 ml/L) for micronutrient support."
+    ],
+    "chemical_control": [
+      "No chemical application required. Avoid prophylactic chemical overuse."
+    ],
+    "prevention": [
+      "Regular scouting every 48 hours for early signs of aphids or blight.",
+      "Maintain soil moisture at 65-75% field capacity."
+    ]
+  },
+  "Tomato___Bacterial_spot": {
+    "crop": "Tomato",
+    "disease": "Bacterial Spot",
+    "pathogen": "Bacterium (Xanthomonas perforans / euvesicatoria)",
+    "severity": "Moderate to High",
+    "symptoms": "Small, water-soaked circular to angular dark brown spots (1-3mm), often with greasy appearance and narrow chlorotic halo.",
+    "causes": "Warm temperatures (25-30°C), driving rains, sprinkler irrigation causing overhead splash.",
+    "organic_control": [
+      "Spray Copper-based bactericide mixed with Bacillus amyloliquefaciens.",
+      "Apply 0.5% copper sulfate with lime solution."
+    ],
+    "chemical_control": [
+      "Streptocycline (Streptomycin sulphate + Tetracycline) @ 0.5 g/10L water combined with Copper Oxychloride (2.5 g/L)."
+    ],
+    "prevention": [
+      "Hot water treatment of seeds (50°C for 25 minutes) before sowing.",
+      "Disinfect pruning shears and staking tools regularly.",
+      "Do not cultivate or touch plants when foliage is wet."
+    ]
+  },
+  "Tomato___Early_blight": {
+    "crop": "Tomato",
+    "disease": "Early Blight",
+    "pathogen": "Fungus (Alternaria solani)",
+    "severity": "Moderate",
+    "symptoms": "Concentric rings on brown lesions resembling bullseye targets, typically beginning on lower older foliage.",
+    "causes": "High humidity, prolonged leaf wetness, low nitrogen stress.",
+    "organic_control": [
+      "Spray cow dung slurry supernatant (10%) + Neem oil (3%).",
+      "Apply Trichoderma harzianum soil inoculation."
+    ],
+    "chemical_control": [
+      "Difenoconazole 25% EC @ 1 ml/L.",
+      "Mancozeb 75% WP @ 2.5 g/L."
+    ],
+    "prevention": [
+      "Stake and mulch tomato plants to prevent soil-to-leaf splashing.",
+      "Prune bottom 30cm of foliage as the plant matures."
+    ]
+  },
+  "Tomato___Late_blight": {
+    "crop": "Tomato",
+    "disease": "Late Blight",
+    "pathogen": "Oomycete (Phytophthora infestans)",
+    "severity": "Severe / Critical",
+    "symptoms": "Pale green turning dark olive-brown greasy lesions; white mildew growth under humid conditions; rapid stem girdling.",
+    "causes": "Cool, damp weather with high fog or rainfall, temperature between 16-22°C.",
+    "organic_control": [
+      "Copper hydroxide 53.8% DF spray.",
+      "Propolis extract spray."
+    ],
+    "chemical_control": [
+      "Famoxadone 16.6% + Cymoxanil 22.1% SC @ 1 ml/L.",
+      "Metalaxyl-M @ 2 g/L."
+    ],
+    "prevention": [
+      "Plant resistant hybrid cultivars.",
+      "Avoid planting tomatoes adjacent to infected potato fields."
+    ]
+  },
+  "Tomato___Yellow_Leaf_Curl_Virus": {
+    "crop": "Tomato",
+    "disease": "Tomato Yellow Leaf Curl Virus (TYLCV)",
+    "pathogen": "Begomovirus (Transmitted by Bemisia tabaci whiteflies)",
+    "severity": "High / Yield Decimating",
+    "symptoms": "Severe upward curling and cupping of leaflets, marked yellowing (chlorosis) of leaf margins, bushy stunted growth.",
+    "causes": "High population pressure of whitefly vector during hot dry spells.",
+    "organic_control": [
+      "Install yellow sticky traps @ 20-25 traps per acre.",
+      "Spray 5% NSKE (Neem Seed Kernel Extract) or 2% horticultural mineral oil.",
+      "Erect 40-mesh insect-proof netting in nursery."
+    ],
+    "chemical_control": [
+      "Imidacloprid 17.8% SL @ 0.5 ml/L to control whitefly vector.",
+      "Diafenthiuron 50% WP @ 1 g/L for vector knockdown."
+    ],
+    "prevention": [
+      "Grow border crops of maize, sorghum, or pearl millet (3 rows) as physical windbreak against vector.",
+      "Rogue out and bury infected virus-carrying plants immediately."
+    ]
+  },
+  "Tomato___healthy": {
+    "crop": "Tomato",
+    "disease": "Healthy Plant Leaf",
+    "pathogen": "None",
+    "severity": "Optimal",
+    "symptoms": "Leaves are vibrant emerald green, serrated edges intact, vigorous apical shoots, active flowering/fruiting.",
+    "causes": "Optimal fertigation, regulated pest scouting, balanced microclimate.",
+    "organic_control": [
+      "Apply Panchagavya 3% or Jeevamrutha spray every 15 days.",
+      "Maintain mycorrhizal root associations."
+    ],
+    "chemical_control": [
+      "None required."
+    ],
+    "prevention": [
+      "Continue monitoring for sap-sucking pests.",
+      "Ensure proper trellising and support."
+    ]
+  },
+  "Corn___Common_rust": {
+    "crop": "Corn (Maize)",
+    "disease": "Common Rust",
+    "pathogen": "Fungus (Puccinia sorghi)",
+    "severity": "Moderate",
+    "symptoms": "Golden-brown to cinnamon-brown powdery pustules erupting on both upper and lower leaf surfaces.",
+    "causes": "Cool, humid weather (16-25°C) with nearly 100% relative humidity.",
+    "organic_control": [
+      "Wettable sulfur (80% WP) @ 3 g/L.",
+      "Spray Ampelomyces quisqualis hyperparasite."
+    ],
+    "chemical_control": [
+      "Propiconazole 25% EC @ 1 ml/L.",
+      "Mancozeb 75% WP @ 2 g/L."
+    ],
+    "prevention": [
+      "Plant rust-tolerant hybrid corn varieties.",
+      "Sow early in the season to escape late fungal spore peaks."
+    ]
+  },
+  "Corn___Northern_Leaf_Blight": {
+    "crop": "Corn (Maize)",
+    "disease": "Northern Corn Leaf Blight",
+    "pathogen": "Fungus (Exserohilum turcicum)",
+    "severity": "Moderate to High",
+    "symptoms": "Long, elliptical grayish-green or tan cigar-shaped lesions (2.5 to 15 cm long) parallel to leaf veins.",
+    "causes": "Moderate temperatures (18-27°C) with heavy dews and high humidity.",
+    "organic_control": [
+      "Bio-fungicide Bacillus subtilis foliar spray.",
+      "Trichoderma viride field spray."
+    ],
+    "chemical_control": [
+      "Azoxystrobin 18.2% + Difenoconazole 11.4% SC @ 1 ml/L.",
+      "Pyraclostrobin 20% WG @ 1 g/L."
+    ],
+    "prevention": [
+      "Deep plowing of maize stubbles to bury overwintering conidia.",
+      "Crop rotation with legumes or oilseeds."
+    ]
+  },
+  "Corn___healthy": {
+    "crop": "Corn (Maize)",
+    "disease": "Healthy Plant Leaf",
+    "pathogen": "None",
+    "severity": "Optimal",
+    "symptoms": "Broad, vibrant green leaves with prominent midrib, erect architecture, no lesions or chlorosis.",
+    "causes": "Adequate nitrogen top-dressing, timely weeding, sufficient moisture at tasseling stage.",
+    "organic_control": [
+      "Apply enriched compost and Azotobacter biofertilizer."
+    ],
+    "chemical_control": [
+      "None required."
+    ],
+    "prevention": [
+      "Inspect whorls for fall armyworm (FAW) egg masses."
+    ]
+  },
+  "Apple___Apple_scab": {
+    "crop": "Apple",
+    "disease": "Apple Scab",
+    "pathogen": "Fungus (Venturia inaequalis)",
+    "severity": "High (Fruit Quality Degradation)",
+    "symptoms": "Olive-green, velvety spots on upper leaf surfaces that turn brownish-black and corky; leaf distortion and early drop.",
+    "causes": "Cool, wet spring weather (10-20°C) with prolonged leaf wetness (6-12 hours).",
+    "organic_control": [
+      "Lime sulfur spray during dormancy and pink bud stage.",
+      "Copper hydroxide spray at silver tip stage."
+    ],
+    "chemical_control": [
+      "Dodine 65% WP @ 1 g/L.",
+      "Difenoconazole 25% EC @ 0.5 ml/L.",
+      "Kresoxim-methyl 44.3% SC @ 0.75 ml/L."
+    ],
+    "prevention": [
+      "Rake and destroy fallen leaves in autumn or spray 5% urea to hasten decomposition.",
+      "Prune orchard canopies to maximize sunlight penetration and wind drying."
+    ]
+  },
+  "Apple___Black_rot": {
+    "crop": "Apple",
+    "disease": "Black Rot (Frogeye Leaf Spot)",
+    "pathogen": "Fungus (Botryosphaeria obtusa)",
+    "severity": "Moderate to High",
+    "symptoms": "Small purple flecks on leaves enlarging to circular lesions with tan centers and purple margins ('frogeye' pattern).",
+    "causes": "Warm temperatures (24-27°C) combined with high rainfall or fire blight damage.",
+    "organic_control": [
+      "Copper oxychloride spray.",
+      "Removal of dead mummified fruits and cankers."
+    ],
+    "chemical_control": [
+      "Captan 50% WP @ 2.5 g/L.",
+      "Thiophanate-methyl 70% WP @ 1 g/L."
+    ],
+    "prevention": [
+      "Prune out dead wood, fire blight strikes, and cankers 15cm below visible damage.",
+      "Keep trees free from mechanical wounds."
+    ]
+  },
+  "Apple___healthy": {
+    "crop": "Apple",
+    "disease": "Healthy Plant Leaf",
+    "pathogen": "None",
+    "severity": "Optimal",
+    "symptoms": "Dark green leaves with serrated margins, robust petiole attachment, glossy cuticle.",
+    "causes": "Good orchard canopy management, balanced N-P-K-B-Ca nutrition.",
+    "organic_control": [
+      "Foliar spray of micronutrient mixture with Boron and Zinc."
+    ],
+    "chemical_control": [
+      "None required."
+    ],
+    "prevention": [
+      "Maintain pheromone traps for codling moth and monitor mite populations."
+    ]
+  }
+}

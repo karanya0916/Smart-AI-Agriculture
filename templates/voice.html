@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Multilingual Voice Assistant - AgriPulse AI{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div>
+    <h2>Multilingual Voice Assistant (Kisan Dhwani)</h2>
+    <p>Hands-free voice recognition and speech synthesis in 9 regional Indian languages for seamless farmer accessibility.</p>
+  </div>
+  <div>
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <label style="font-weight: 600; font-size: 0.9rem; color: #1b4332;">🌐 Select Language:</label>
+      <select id="voiceLangSelect" class="form-control" style="width: auto; padding: 0.4rem 0.85rem; font-weight: 600; color: #1b4332;">
+        <option value="hi" selected>🇮🇳 हिन्दी (Hindi)</option>
+        <option value="en">🇮🇳 English (India)</option>
+        <option value="mr">🚩 मराठी (Marathi)</option>
+        <option value="te">🌾 తెలుగు (Telugu)</option>
+        <option value="ta">🌴 தமிழ் (Tamil)</option>
+        <option value="bn">🌱 বাংলা (Bengali)</option>
+        <option value="gu">🚜 ગુજરાતી (Gujarati)</option>
+        <option value="kn">🌻 ಕನ್ನಡ (Kannada)</option>
+        <option value="pa">🌾 ਪੰਜਾਬੀ (Punjabi)</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div style="max-width: 900px; margin: 0 auto;">
+  <!-- Main Voice Hub Card -->
+  <div class="voice-hub">
+    <!-- Big Mic Button -->
+    <button type="button" class="mic-btn" id="micToggleBtn" title="Click to speak">
+      🎙️
+    </button>
+
+    <!-- Status Text -->
+    <div id="micStatusText" style="font-size: 1rem; color: #4b5563; font-weight: 600; margin-top: 1rem;">
+      Click microphone to speak
+    </div>
+
+    <!-- Animated Sound Wave Visualizer (Active during recording) -->
+    <div class="voice-wave" id="voiceWaveAnim" style="display: none;">
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+    </div>
+
+    <!-- Live Speech Transcript Box -->
+    <div class="transcript-panel" id="voiceTranscript">
+      "Your spoken words will appear here in real-time..."
+    </div>
+
+    <!-- Spoken Voice Response Card -->
+    <div class="voice-reply-card" id="voiceResponseCard" style="display: none;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+        <span style="font-size: 0.85rem; font-weight: 700; color: #166534; text-transform: uppercase; letter-spacing: 0.5px;">
+          🌾 AgriPulse Spoken Advisory
+        </span>
+        <button type="button" class="btn btn-outline" id="playAudioBtn" style="padding: 0.25rem 0.65rem; font-size: 0.8rem;">
+          🔊 Replay Voice
+        </button>
+      </div>
+      <p id="voiceResponseText" style="font-size: 1rem; color: #1f2937; line-height: 1.6; font-weight: 500;">
+        Response text...
+      </p>
+    </div>
+  </div>
+
+  <!-- 1-Click Fast Voice Sample Chips -->
+  <div class="card" style="margin-top: 1.5rem;">
+    <div class="card-header">
+      <h3>⚡ Instant Voice Test Prompts (1-Click Demo)</h3>
+      <small style="color: #6b7280;">Click any phrase to simulate voice input without microphone hardware</small>
+    </div>
+    <div class="sample-chips" id="voiceSamplePrompts">
+      <!-- Populated dynamically via voice.js based on selected language -->
+    </div>
+  </div>
+
+  <!-- Accessibility & Impact Card -->
+  <div class="card" style="margin-top: 1.5rem; background: #fbfdfc; border-left: 4px solid var(--secondary-color);">
+    <h4 style="color: #1b4332; margin-bottom: 0.5rem;">🌾 Why Multilingual Voice Matters in Smart Agriculture</h4>
+    <p style="font-size: 0.88rem; color: #4b5563; line-height: 1.6;">
+      Over 65% of smallholder farmers across India face digital literacy barriers when navigating complex text forms. 
+      The AgriPulse Voice Assistant enables farmers to speak naturally in their native mother tongue—whether inquiring about 
+      fertilizer dosage, blight remedies, PM-KISAN installments, or monsoon rains—and hear clear audio guidance back.
+    </p>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/voice.js') }}"></script>
+{% endblock %}
